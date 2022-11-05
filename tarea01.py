@@ -92,4 +92,12 @@ def Cargar_archivoPC():
             ObjetoLibros.append(libro)
             ListLibros.append(Objeto_list(libro))
 
-print (biblioteca[1].get_Genero())
+#metodo para listar todo los libros
+def Listar_libros():
+    for i in ListLibros:
+        print(i)
+        
+#metodo para agregar un nuevo libro    
+def Agregar_libro(L:Libro):
+    ObjetoLibros.append(L)
+    ListLibros.append(Objeto_list(L))
