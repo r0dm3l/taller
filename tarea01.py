@@ -101,3 +101,15 @@ def Listar_libros():
 def Agregar_libro(L:Libro):
     ObjetoLibros.append(L)
     ListLibros.append(Objeto_list(L))
+
+#metodo para eliminar un libro segun su id
+def Eliminar_Libro(id):
+    j=0
+    for i in ObjetoLibros:
+        
+        if i.get_Id()==str(id):
+            ObjetoLibros.pop(j)
+            ListLibros.pop(j)
+            break
+        else:
+            j+=1
