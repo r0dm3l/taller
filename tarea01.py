@@ -1,3 +1,7 @@
+import pandas as pd
+import _csv
+from os import system
+import time
 class Libro:
     #constructor
     def __init__(self,id,titulo,genero,isbn,editorial,autor):
