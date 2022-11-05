@@ -66,5 +66,30 @@ list1=[libro1.get_Id(),libro1.get_Titulo(),libro1.get_Genero(),libro1.get_Isbn()
 list2=[libro2.get_Id(),libro2.get_Titulo(),libro2.get_Genero(),libro2.get_Isbn(),libro2.get_Editorial(),libro2.get_Autor()]
 list3=[libro3.get_Id(),libro3.get_Titulo(),libro3.get_Genero(),libro3.get_Isbn(),libro3.get_Editorial(),libro3.get_Autor()]
 
+#creando un archivo csv para luego cargarlo
+
+with open('D:/libros01.csv','w',newline='')as csvData:
+    writer=_csv.writer(csvData)
+    writer.writerow(['Id','Titulo','Genero','ISBN','Editorial','Autor'])
+    writer.writerow(list1)
+    writer.writerow(list2)
+    writer.writerow(list3)
+
+
+#metodo para pasar un objeto libro a alista
+def Objeto_list(a:Libro):
+    list=[a.get_Id(),a.get_Titulo(),a.get_Genero(),a.get_Isbn(),a.get_Editorial(),a.get_Autor()]
+    return list
+
+#leer un archivo csv
+def Cargar_archivoPC():
+    with open('D:/libros01.csv') as File:
+        data= _csv.reader(File,delimiter=',')
+        next(data)
+        for i in data:
+            
+            libro=Libro(i[0],i[1],i[2],i[3],i[4],(i[5]))
+            ObjetoLibros.append(libro)
+            ListLibros.append(Objeto_list(libro))
 
 print (biblioteca[1].get_Genero())
