@@ -125,3 +125,111 @@ def Buscar_Titulo(titulo):
     for i in ListLibros:
         if titulo in i[1]:
             print(i)
+#creando el menu
+aux=1
+while aux==1:
+    system("cls")
+    print(".............................................................")
+    print("bien venido a este menu")
+    print(".............................................................")
+    print("elige una opcion que desea realizar(escriba un numero)/n")
+    print("1:Leer archivo de disco duro que cargue 3 libros.")
+    print("2: Listar libros.")
+    print("3: Agregar libro")
+    print("4: Eliminar libro")
+    print("5: Buscar libro por ISBN o por título")
+    print("6: Ordenar libros por título")
+    print("7: Buscar libros por autor, editorial o género")
+    print("8: Buscar libros por número de autores")
+    print("9: Editar o actualizar datos de un libro")
+    print("10: Guardar libros en archivo de disco duro")
+    print("11:salir del menu")
+    
+    #menu opcion 1
+    opp=input("escribe el numero elejido")
+    if int(opp)==1:
+        system("cls")
+        print("------------------------------------------------------")
+        print("CARGAR ARCHIVO")
+        print("------------------------------------------------------")
+        Cargar_archivoPC()
+        print("archivo cargado correctamente")
+        time.sleep(3)
+    #menu opcion 2    
+    elif int(opp)==2:
+        system("cls")
+        print("------------------------------------------------------")
+        print("LISTA DE LIBROS")
+        print("------------------------------------------------------")
+        
+        print("id,   titulo  genero,  isbn,   editorial,  autores")
+        Listar_libros()
+        time.sleep(6)
+        
+    #menu opcion 3
+    elif int(opp)==3:
+        system("cls")
+        print("------------------------------------------------------")
+        print("AGREGANDO UN LIBRO NUEVO")
+        print("------------------------------------------------------")
+        id=input("ingrese el id")
+        titulo=input("ingrese el titulo del libro")
+        genero=input("ingrese el genero al que pertenece el libro(ejem: fantasia,belico,etc.)")
+        isbn=input("ingrese el isbn del libro")
+        editorial=input("ingrese la editoria")
+        autor=input("ingrese el autor o los autores del libro")
+        libro=Libro(id,titulo,genero,isbn,editorial,autor)
+        system("cls")
+        Agregar_libro(libro)
+        system("cls")
+        print("------------------------------------------------------")
+        print("LIBRO AGREGADO CORRECTAMENTE")
+        print("------------------------------------------------------")
+        
+        print("id,   titulo  genero,  isbn,   editorial,  autores")
+        print(Objeto_list(libro))
+        time.sleep(4)
+    #menu opcion 4
+    elif int(opp)==4:
+        system("cls")
+        print("------------------------------------------------------")
+        print("ELIMINAR LIBRO POR ID")
+        print("------------------------------------------------------")
+        id=input("ingrese el id del libro que decea eliminar")
+        a=len(ListLibros)
+        Eliminar_Libro(id)
+        b=len(ListLibros)
+        if a==b:
+            print("no existe un libro con ese id")
+        else:
+            print("Libro eliminado con exito")
+        time.sleep(3)
+    elif int(opp)==5:
+        system("cls")
+        print("------------------------------------------------------")
+        print("BUSCAR LIBRO POR ISBN O TITULO")
+        print("------------------------------------------------------")
+        print(" INGRESA:1  para buscar por ISBN")
+        print(" INGRESA:2  para buscar por titulo")
+        O=input("ingrese una respuesta")
+        if int(O)==1:
+            system("cls")
+            print("------------------------------------------------------")
+            print("BUSCAR LIBRO POR ISBN")
+            print("------------------------------------------------------")
+            O=input('Ingrese el ISBN del libro : ')
+            Buscar_ISBN(O)
+            time.sleep(3)
+        elif int(O)==2:
+            system("cls")
+            print("------------------------------------------------------")
+            print("BUSCAR LIBRO POR ISBN")
+            print("------------------------------------------------------")
+            O=input('Ingrese el titulo del libro : ')
+            Buscar_Titulo(O)
+            time.sleep(3)
+        else:
+            print("dato incorrecto...")
+            print("saliendo al menu principal.")
+            time.sleep(3)
+        
