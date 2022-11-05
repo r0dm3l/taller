@@ -48,15 +48,23 @@ class Libro:
     def set_Autor(self, autor):
         self.__autor = autor
     
-biblioteca={}
+ObjetoLibros=[]    
+ListLibros=[]
 
 #metodos
+#creando objetos de tipo libro
 
-libro1=Libro(1,"troya",["fantacia","belico","mitologia"],"70378595","san marcas","homero")
+libro1=Libro(1,"troya","fantacia","70378595","san marcas","homero, anonimo")
 
 libro2=Libro(2,"divina comedia","culto","74859623","san agustin","dhante aliguery")
 
-biblioteca[1]=libro1
-biblioteca[2]=libro2
+libro3=Libro(3,"aves sin nido","indigenismo","145897gh","coquito","clorinda mato de turner")
+
+
+#creando listas utilizando los datos de los objetos
+list1=[libro1.get_Id(),libro1.get_Titulo(),libro1.get_Genero(),libro1.get_Isbn(),libro1.get_Editorial(),libro1.get_Autor()]
+list2=[libro2.get_Id(),libro2.get_Titulo(),libro2.get_Genero(),libro2.get_Isbn(),libro2.get_Editorial(),libro2.get_Autor()]
+list3=[libro3.get_Id(),libro3.get_Titulo(),libro3.get_Genero(),libro3.get_Isbn(),libro3.get_Editorial(),libro3.get_Autor()]
+
 
 print (biblioteca[1].get_Genero())
