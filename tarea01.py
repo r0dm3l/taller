@@ -113,3 +113,15 @@ def Eliminar_Libro(id):
             break
         else:
             j+=1
+#metodo buscar libro por ISBN
+def Buscar_ISBN(isbn):
+    for i in ListLibros:
+        if i[3]==isbn:
+            print(i)
+        
+
+#metodo buscar por titulo
+def Buscar_Titulo(titulo):
+    for i in ListLibros:
+        if titulo in i[1]:
+            print(i)
