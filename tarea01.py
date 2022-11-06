@@ -52,7 +52,8 @@ libro1=Libro(1,"troya",["fantacia","belico","mitologia"],"70378595","san marcas"
 
 libro2=Libro(2,"divina comedia","culto","74859623","san agustin","dhante aliguery")
 
-biblioteca[1]=libro1
-biblioteca[2]=libro2
+#metodo ordenar libros por titulo
+def ordenar_Titulo():
+    df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
+    print(df.sort_values('titulo',ascending=True))
 
-print (biblioteca[1].get_Genero())
