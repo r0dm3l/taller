@@ -137,3 +137,24 @@ def Listar_PorHabitad(l:int,N):
                     break
     print(f"pokemones de Habitad: {payload['name']}")
     return list_Pokemon_Habitad 
+
+#listar por forma
+def Listar_PorForma(l:int,N):
+    list_Pokemon_Forma=pd.DataFrame(columns=["nombre","habilidad_es", "Url_img"])
+    response=requests.get(f"https://pokeapi.co/api/v2/pokemon-shape/{N}")
+    
+    if response.status_code==200:
+        payload = response.json()
+        
+        resultForma=payload.get('pokemon_species',[])
+       
+        if resultForma:
+            j=0
+            for i in resultForma:
+                if j<=l:
+                    list_Pokemon_Forma=pd.concat([list_Pokemon_Forma,Listar_PorEspecie(i['name'])])
+                    j+=1
+                else:
+                    break
+    print(f"pokemones de Forma: {payload['name']}")
+    return list_Pokemon_Forma 
