@@ -82,3 +82,21 @@ def Buscar_Num_Autores(N):
         if str(i[5].count(',')+1)==str(N):
             print(i)
 
+#metodo actualizar libro            
+def Actualizar_Libro(id,Libro:Libro):
+    j=0
+    
+    for i in ObjetoLibros:        
+        if i.get_Id()==str(id):
+            ObjetoLibros[j].set_Titulo(Libro.get_Titulo())
+            ObjetoLibros[j].set_Genero(Libro.get_Genero())
+            ObjetoLibros[j].set_Isbn(Libro.get_Isbn())
+            ObjetoLibros[j].set_Editorial(Libro.get_Editorial())
+            ObjetoLibros[j].set_Autor(Libro.get_Autor())
+            ListLibros[j]=Objeto_list(ObjetoLibros[j])
+            
+            break
+        else:
+            j+=1
+
+
