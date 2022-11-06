@@ -100,3 +100,9 @@ def Actualizar_Libro(id,Libro:Libro):
             j+=1
 
 
+
+#metod Guardar libros en csv
+def guardar_Libros_Csv():
+    df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
+    df.to_csv('/home/frank/Escritorio/Python/silabuz/trabajo_unidad1/libros/libroFinal.csv',sep=',',index=False)
+    print("archivo csv creado con exito")
