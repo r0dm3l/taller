@@ -158,3 +158,21 @@ def Listar_PorForma(l:int,N):
                     break
     print(f"pokemones de Forma: {payload['name']}")
     return list_Pokemon_Forma 
+
+def Listar_tags(N):
+    response=requests.get(f"https://pokeapi.co/api/v2/{N}")
+        
+    if response.status_code==200:
+        payload = response.json()
+               
+        result=payload.get('results',[])
+        listTag=[]
+        
+        if result:
+            j=1
+            for i in result:
+                lisAux=[j,i["name"]]
+                listTag.append(lisAux)
+                j+=1  
+                
+    return listTag
