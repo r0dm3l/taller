@@ -100,3 +100,19 @@ def Listar_PorHabilidad(N):
     print(f"pokemones con habilidad de: {payload['name']}")           
     return list_Pokemon_Habilidad        
 
+
+#listar specie
+def Listar_PorEspecie(N):
+    list_Pokemon_Especie=pd.DataFrame(columns=["nombre","habilidad_es", "Url_img"])
+    response=requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{N}")
+    
+    if response.status_code==200:
+        payload = response.json()
+        
+        resultEspecie=payload.get('varieties',[])
+        
+        if resultEspecie:            
+            for i in resultEspecie:
+                list_Pokemon_Especie=pd.concat([list_Pokemon_Especie,get_listar_pokemos(i['pokemon']['name'])])
+    #print(f"pokemones pertenecientes : {payload['name']}")           
+    return list_Pokemon_Especie   
