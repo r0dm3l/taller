@@ -76,3 +76,9 @@ def Buscar_Genero(genero):
         if genero in i[2]:
             print(i)
             
+#Buscar por numero de autores            
+def Buscar_Num_Autores(N):
+    for i in ListLibros:
+        if str(i[5].count(',')+1)==str(N):
+            print(i)
+
