@@ -111,7 +111,27 @@ def guardar_Libros_Csv():
     df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
     df.to_csv('/home/frank/Escritorio/Python/silabuz/trabajo_unidad1/libros/libroFinal.csv',sep=',',index=False)
     print("archivo csv creado con exito")
+Cargar_archivoPC()
 
+aux=1
+while aux==1:
+    print(".............................................................")
+    print("BIENVENIDOS A NUESTRA BIBLIOTECA")
+    print(".............................................................")
+    print("elige una opcion que desea realizar(escriba un numero)/n: ")
+    print("1:Leer archivo de disco duro que cargue 3 libros.")
+    print("2: Listar libros.")
+    print("3: Agregar libro")
+    print("4: Eliminar libro")
+    print("5: Buscar libro por ISBN o por título")
+    print("6: Ordenar libros por título")
+    print("7: Buscar libros por autor, editorial o género")
+    print("8: Buscar libros por número de autores")
+    print("9: Editar o actualizar datos de un libro")
+    print("10: Guardar libros en archivo de disco duro")
+    print("11:salir del menu\n")
+    opp=input("escribe el numero elegido: ")
+    print(".............................................................")
     elif int(opp)==6:
         print("\nLIBROS ORDENADOS POR TITULO\n")
         ordenar_Titulo()
