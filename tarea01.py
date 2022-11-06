@@ -83,23 +83,28 @@ def Buscar_Num_Autores(N):
             print(i)
 
 #metodo actualizar libro            
-def Actualizar_Libro(id,Libro:Libro):
+def Actualizar_Libro(id):
+
+    titulo = input("Actualizar titulo: ")
+    genero = input("Actualizar genero")
+    isbn = input("Actualizar ISBN")
+    editorial = input("Actualizar editorial")
+    autor = input("Actualizar autor")
+
     j=0
     
     for i in ObjetoLibros:        
         if i.get_Id()==str(id):
-            ObjetoLibros[j].set_Titulo(Libro.get_Titulo())
-            ObjetoLibros[j].set_Genero(Libro.get_Genero())
-            ObjetoLibros[j].set_Isbn(Libro.get_Isbn())
-            ObjetoLibros[j].set_Editorial(Libro.get_Editorial())
-            ObjetoLibros[j].set_Autor(Libro.get_Autor())
+            ObjetoLibros[j].set_Titulo(titulo)
+            ObjetoLibros[j].set_Genero(genero)
+            ObjetoLibros[j].set_Isbn(isbn)
+            ObjetoLibros[j].set_Editorial(editorial)
+            ObjetoLibros[j].set_Autor(autor)
             ListLibros[j]=Objeto_list(ObjetoLibros[j])
             
             break
         else:
             j+=1
-
-
 
 #metod Guardar libros en csv
 def guardar_Libros_Csv():
