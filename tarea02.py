@@ -116,3 +116,24 @@ def Listar_PorEspecie(N):
                 list_Pokemon_Especie=pd.concat([list_Pokemon_Especie,get_listar_pokemos(i['pokemon']['name'])])
     #print(f"pokemones pertenecientes : {payload['name']}")           
     return list_Pokemon_Especie   
+
+#Listar por habitad
+def Listar_PorHabitad(l:int,N):
+    list_Pokemon_Habitad=pd.DataFrame(columns=["nombre","habilidad_es", "Url_img"])
+    response=requests.get(f"https://pokeapi.co/api/v2/pokemon-habitat/{N}")
+    
+    if response.status_code==200:
+        payload = response.json()
+        
+        resultHabitad=payload.get('pokemon_species',[])
+       
+        if resultHabitad:
+            j=0
+            for i in resultHabitad:
+                if j<=l:
+                    list_Pokemon_Habitad=pd.concat([list_Pokemon_Habitad,Listar_PorEspecie(i['name'])])
+                    j+=1
+                else:
+                    break
+    print(f"pokemones de Habitad: {payload['name']}")
+    return list_Pokemon_Habitad 
