@@ -57,3 +57,22 @@ def ordenar_Titulo():
     df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
     print(df.sort_values('titulo',ascending=True))
 
+#metodo buscar por Autor
+def Buscar_Autor(autor):
+    for i in ListLibros:
+        for j in i:
+            if autor in j:
+                print(i)
+                break
+#buscar por editorial
+def Buscar_Editorial(editorial):
+    for i in ListLibros:
+        if editorial in i[4]:
+            print(i)
+
+#buscar por genero
+def Buscar_Genero(genero):
+    for i in ListLibros:
+        if genero in i[2]:
+            print(i)
+            
