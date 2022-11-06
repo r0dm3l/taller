@@ -52,7 +52,57 @@ libro1=Libro(1,"troya",["fantacia","belico","mitologia"],"70378595","san marcas"
 
 libro2=Libro(2,"divina comedia","culto","74859623","san agustin","dhante aliguery")
 
-biblioteca[1]=libro1
-biblioteca[2]=libro2
+#metodo ordenar libros por titulo
+def ordenar_Titulo():
+    df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
+    print(df.sort_values('titulo',ascending=True))
 
-print (biblioteca[1].get_Genero())
+#metodo buscar por Autor
+def Buscar_Autor(autor):
+    for i in ListLibros:
+        for j in i:
+            if autor in j:
+                print(i)
+                break
+#buscar por editorial
+def Buscar_Editorial(editorial):
+    for i in ListLibros:
+        if editorial in i[4]:
+            print(i)
+
+#buscar por genero
+def Buscar_Genero(genero):
+    for i in ListLibros:
+        if genero in i[2]:
+            print(i)
+            
+#Buscar por numero de autores            
+def Buscar_Num_Autores(N):
+    for i in ListLibros:
+        if str(i[5].count(',')+1)==str(N):
+            print(i)
+
+#metodo actualizar libro            
+def Actualizar_Libro(id,Libro:Libro):
+    j=0
+    
+    for i in ObjetoLibros:        
+        if i.get_Id()==str(id):
+            ObjetoLibros[j].set_Titulo(Libro.get_Titulo())
+            ObjetoLibros[j].set_Genero(Libro.get_Genero())
+            ObjetoLibros[j].set_Isbn(Libro.get_Isbn())
+            ObjetoLibros[j].set_Editorial(Libro.get_Editorial())
+            ObjetoLibros[j].set_Autor(Libro.get_Autor())
+            ListLibros[j]=Objeto_list(ObjetoLibros[j])
+            
+            break
+        else:
+            j+=1
+
+
+
+#metod Guardar libros en csv
+def guardar_Libros_Csv():
+    df=pd.DataFrame(ListLibros,columns=['id','titulo','genero','isbn','editorial','autor_es'])
+    df.to_csv('/home/frank/Escritorio/Python/silabuz/trabajo_unidad1/libros/libroFinal.csv',sep=',',index=False)
+    print("archivo csv creado con exito")
