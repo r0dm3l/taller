@@ -176,3 +176,82 @@ def Listar_tags(N):
                 j+=1  
                 
     return listTag
+
+#MENU
+continuar=1
+while continuar==1:
+    system("cls")
+    print("----------------------------------------------------")
+    print("Bienvenido Al Menu")
+    print("---------------------------------------------------")
+
+    print("1:listar pokemon por generacion")
+    print("2:listar pokemon segun su forma")
+    print("3:listar pokemon segun una habilidad")
+    print("4:listar pokemon segun su  habitad")
+    print("5:listar pokemon segun su tipo")
+    print("6:salir del menu")
+    oppcion=input("ingrese el numero de la opcion elegida: " )
+    link=""
+    if oppcion==str(1):
+        link="generation"
+        system("cls")
+        print("----------------------------------------------------")
+        print("LISTAR POKEMON POR GENERACION")
+        print("---------------------------------------------------")
+        print(Listar_tags(link))
+        print("...................................................")
+        dato=input("ingrese una opción(numero u nombre")
+        N=input("ingrese un numero(cantidad de pokemones que quiera ver)")
+        print(Listar_generacion(int(N),dato))
+        input("presione cualquier tecla para volver al menu")
+    elif oppcion==str(2):
+        link="pokemon-shape"
+        print("----------------------------------------------------")
+        print("LISTAR POKEMON SU FORMA")
+        print("---------------------------------------------------")
+        print(Listar_tags(link))
+        print("...................................................")
+        dato=input("ingrese una opción(numero 0 nombre")
+        N=input("ingrese un numero(cantidad de pokemones que quiera ver)")
+        print(Listar_PorForma(int(N),dato))
+        input("presione cualquier tecla para volver al menu")
+    elif oppcion==str(3):
+        link="ability"
+        print("----------------------------------------------------")
+        print("LISTAR POKEMON POR UNA HABILIDAD")
+        print("---------------------------------------------------")
+        print(Listar_tags(link))
+        print("...................................................")
+        dato=input("ingrese una opción(numero u nombre")
+        print(Listar_PorHabilidad(dato))
+        input("presione cualquier tecla para volver al menu")
+    elif oppcion==str(4):
+        link="pokemon-habitat"
+        print("----------------------------------------------------")
+        print("LISTAR POKEMON SEGUN HABITAD")
+        print("---------------------------------------------------")
+        print(Listar_tags(link))
+        print("...................................................")
+        dato=input("ingrese una opción(numero u nombre")
+        N=input("ingrese un numero(cantidad de pokemones que quiera ver)")
+        print(Listar_PorHabitad(int(N),dato))
+        input("presione cualquier tecla para volver al menu")
+    elif oppcion==str(5):
+        link="type"
+        print("----------------------------------------------------")
+        print("LISTAR POKEMON POR TIPO")
+        print("---------------------------------------------------")
+        print(Listar_tags(link)[0:18])
+        print("...................................................")
+        dato=input("ingrese una opción(numero u nombre")
+        N=input("ingrese un numero(cantidad de pokemones que quiera ver)")
+        print(Listar_PorTipo(int(N),dato))
+        input("presione cualquier tecla para volver al menu")
+    elif oppcion==str(6):
+        print("saliendo del menu")
+        time.sleep(2)
+        continuar=2
+    else:
+        print("dato incorrecto, ingrese un valor valido ")
+        time.sleep(2)
