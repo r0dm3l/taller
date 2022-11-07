@@ -1,3 +1,3 @@
 ## Integrantes:
-- Frank Cano de la Cruz
 - Rodmel Calderón coronado
+- Frank Cano de la Cruz
